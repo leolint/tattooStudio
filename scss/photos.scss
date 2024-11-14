@@ -1,0 +1,47 @@
+@import 'mixins';
+
+.photos {
+    width: 100%;
+    color: white;
+    margin: 100px 0px 0px 0px;
+    background: url(../img/intro.gif) no-repeat;
+    background-position: -15%;
+    background-size: contain;
+    @include br (md) {
+        background-position: center;
+        background-size: 30%;
+    }
+    &_wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include br (md) {
+            flex-direction: column-reverse;
+        }
+        &-text {
+            width: 30%;
+            color: $base-color;
+            font-size: 15px;
+            @include br (md) {
+                width: 65%;
+                text-align: start;
+            }
+            @include br (sm) {
+                width: 86%;
+                text-align: center;
+            }
+        }
+        &-img {
+
+            img {
+                @include br (xl) {
+                    width: 500px;
+                }
+                @include br (sm) {
+                    width: 300px;
+                }
+            }
+        }
+    }
+}
+

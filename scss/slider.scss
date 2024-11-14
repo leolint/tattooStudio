@@ -1,0 +1,182 @@
+@import 'mixins';
+
+.slider {
+    width: 100%;
+    margin: 100px 0px 150px 0px;
+    display: flex;
+
+    &_wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include br(md) {
+            flex-direction: column;
+        }
+
+        &-buttons {
+            display: flex;
+            flex-direction: column;
+
+            @include br(md) {
+                flex-direction: row;
+                margin: 0px 0px 30px 0px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            @include br(sm) {
+               flex-wrap: wrap;
+            }
+            button {
+                width: 200px;
+                height: 50px;
+                border: 2px $base-color solid;
+                background-color: black;
+                color: $base-color;
+                text-transform: uppercase;
+                font-weight: 600;
+                cursor: pointer;
+                position: relative;
+                margin: 30px;
+                transition: 0.3s ease;
+                outline: none;
+
+                @include br(xl) {
+                    width: 150px;
+                    height: 50px;
+                    font-size: 10px;
+                    margin: 25px;
+                }
+                @include br(sm) {
+                    width: 150px;
+                    margin: 10px;
+                    height: 40px;
+                }
+
+                &:hover {
+                    transform: translate(15px, -15px);
+                    transition: 0.3s ease;
+                    border: 2px black solid;
+                    background-color: $base-color;
+                    color: black;
+                    -webkit-box-shadow: -36px 33px 30px 0px rgba(212, 255, 88, 1);
+                    -moz-box-shadow: -36px 33px 30px 0px rgba(212, 255, 88, 1);
+                    box-shadow: -36px 33px 30px 0px rgba(212, 255, 88, 1);
+
+                    &::before {
+                        background-color: $base-color;
+                        border: 2px black solid;
+                    }
+
+                    &::after {
+                        background-color: $base-color;
+                        border: 2px black solid;
+                    }
+
+                    @include br (sm) {
+                        transform: translate(0px, 0px);
+                        transition: 0.3s ease;
+                        border: 2px black solid;
+                        background-color: $base-color;
+                        color: black;
+                        box-shadow: none;
+                    }
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 10px;
+                    left: -25px;
+                    height: 100%;
+                    width: 20px;
+                    background-color: black;
+                    transform: skewY(-45deg);
+                    border: 2px $base-color solid;
+                    z-index: -5;
+                    @include br(xl) {   
+                        width: 12px;
+                        top: 6px;
+                        left: -17px;
+                        top: 5px;
+                    }
+
+                    @include br(sm) {
+                        display: none;
+                    }
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: -25px;
+                    left: -13px;
+                    height: 20px;
+                    width: 100%;
+                    background-color: black;
+                    transform: skewY(0deg) skewX(-45deg);
+                    border: 2px $base-color solid;
+                    z-index: -5;
+                    @include br(xl) {
+                        height: 12px;
+                        bottom: -17px;
+                        left: -9px;
+                    }
+
+                    @include br(sm) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &-images {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 70% !important;
+            @include br(xl) {
+                flex-wrap: wrap;
+            }
+
+            @include br(sm) {
+                justify-content: center;
+            }
+
+            img {
+                width: 350px;
+                height: 400px;
+                filter: brightness(70%);
+                margin: 0px 10px 20px 10px;
+                transition: 0.3s ease;
+                @include br (xl) {
+                    width: 300px;
+                }
+                @include br(md) {
+                    width: 230px;
+                    height: 280px;
+                }
+            }
+        }
+    }
+
+
+
+}
+
+
+.rotateSlider {
+    transform: rotate(360deg);
+    transition: 0.5s ease;
+}
+
+.showPhotos {
+    display: flex;
+}
+
+.rotateImg {
+    transform: rotateY(0deg) !important;
+    transition: 0.3s ease;
+}

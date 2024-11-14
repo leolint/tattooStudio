@@ -1,0 +1,41 @@
+@import 'mixins';
+
+
+.services{
+    width: 100%;
+    &_title {
+        color: $base-color;
+        font-size: 40px;
+        margin: 0px 0px 0px 0px;
+    }
+    &_wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin: 20px 0px 0px 0px;
+        @include br(xl) {
+            flex-wrap: wrap;
+        }
+        &-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include br (md) {
+                text-align: center;
+            }
+            figcaption {
+                color: $base-color;
+                font-size: 20px;
+            }
+            img {
+                height: 400px;
+                filter: brightness(80%);
+                @include br(sm) {
+                    width: 300px;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

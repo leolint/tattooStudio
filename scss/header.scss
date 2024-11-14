@@ -1,0 +1,152 @@
+@import 'mixins';
+
+.header {
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    transition: 0.5s ease;
+
+    &_wrapper {
+        height: 110px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-logo {
+            img {
+                height: 100px;
+            }
+        }
+
+        &-nav {
+            ul {
+                display: flex;
+                align-items: center;
+                list-style-type: none;
+                position: fixed;
+                opacity: 0;
+                right: -100%;
+                top: 0%;
+                transition: 0.4s;
+                margin: 18px 100px 0px 0px;
+
+                @include br (md) {
+                    margin: 0px 0px 0px 0px;
+                    flex-direction: column;
+                    background-color: black;
+                    align-items: start;
+                    padding: 20px 0px 20px 10px;
+                    border-left: 1px $base-color solid;
+                    border-bottom: 1px $base-color solid;
+                }
+
+                li {
+
+                    font-size: 20px;
+                    color: $base-color;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    border-bottom: 1px transparent solid;
+                    text-align: center;
+                    cursor: pointer;
+                    margin: 20px 20px 20px 20px;
+
+                    &:hover {
+                        border-bottom: 1px $base-color solid;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: $base-color;
+
+                    }
+                }
+            }
+
+        }
+
+        &-button {
+            border: none;
+            background-color: transparent;
+            margin: 0px 20px 0px 0px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            outline: none;
+            position: relative;
+            z-index: 10;
+
+            @include br(md) {
+                right: 2%;
+            }
+
+            @include br(sm) {
+                margin: 0px 3px 0px 0px;
+            }
+
+            &:hover {
+                span {
+                    &:nth-child(2) {
+                        width: 30px;
+                        transition: 0.3s ease;
+                    }
+
+                    &:nth-child(3) {
+                        width: 30px;
+                        transition: 0.3s ease;
+                    }
+                }
+
+
+            }
+
+            span {
+                display: block;
+                width: 30px;
+                height: 3px;
+                background-color: $base-color;
+                margin: 5px;
+
+                &:nth-child(2) {
+                    width: 23px;
+                    transition: 0.3s ease;
+                }
+
+                &:nth-child(3) {
+                    width: 15px;
+                    transition: 0.3s ease;
+                }
+            }
+        }
+    }
+}
+
+.openMenu {
+    position: fixed;
+    right: 0% !important;
+    top: 0% !important;
+    opacity: 1 !important;
+    transition: 0.4s;
+}
+
+
+.buttonCloseAnimation {
+    span {
+        &:nth-child(1) {
+            transform: rotate(-45deg) translateY(20px);
+        }
+
+        &:nth-child(2) {
+            display: none;
+        }
+
+        &:nth-child(3) {
+            width: 30px;
+            transform: rotate(45deg) translateY(-20px);
+        }
+    }
+}
+
+.bgColor {
+    background-color: black;
+    transition: 0.3s ease;
+}
